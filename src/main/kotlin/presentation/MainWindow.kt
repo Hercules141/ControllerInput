@@ -7,7 +7,7 @@ import androidx.compose.runtime.*
 
 @Composable
 @Preview
-fun MainContent() {
+fun MainWindow() {
     var text by remember { mutableStateOf("Hello, World!") }
 
     Button(

@@ -1,13 +1,14 @@
-
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import domain.controller.ControllerManager
-import presentation.MainContent
+import presentation.MainWindow
 
 fun main() = application {
-    val controllers = ControllerManager()
+
+    ControllerManager()
+
 
     Window(onCloseRequest = ::exitApplication) {
-        MainContent()
+        MainWindow()
     }
 }
