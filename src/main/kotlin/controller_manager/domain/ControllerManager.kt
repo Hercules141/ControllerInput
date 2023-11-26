@@ -11,7 +11,8 @@ import net.java.games.input.Event
 
 class ControllerManager(
     val onAnalogControllerEvent: (Event) -> Unit,
-    val onButtonPress: () -> Unit
+    val onButtonPress: (Event) -> Unit
+    // todo prob try data class and states first with one sub dataclass for analog and digital, then give dataclass instead of event, tldr
 ) {
     private lateinit var controllerEnvironment: ControllerEnvironment
     private lateinit var controller: Controller
@@ -37,45 +38,45 @@ class ControllerManager(
         }
     }
 
+    /**
+    * Documentatation for Inputs:
+    *   relevant infos are
+    *       - event.component.name
+    *       - event.value       -> 1.0 = 'on' ; 0.0 'off' (except arrow keys increments of 0.25, starting top, clockwise)
+    *
+    *       component names:
+    *           cross: "Taste 0"
+    *           circle: "Taste 1"
+    *           square: "Taste 2"
+    *           Triange: "Taste 3"
+    *           L1: "Taste 4"
+    *           R1: "Tate 5"
+    *
+    *           DPad: component name: "Mehrwegeschalter"
+    *               values (all ca. check range possibly):
+    *               -> up: "0.25"
+    *               -> right: "0.5"
+    *               -> down: "0.75"
+    *               -> left: "1.0"
+    *
+    * */
     suspend fun addEventListenerToController(){
-        /*
-        * Documentatation for Inputs:
-        *   relevant infos are
-        *       - event.component.name
-        *       - event.value       -> 1.0 = 'on' ; 0.0 'off' (except arrow keys increments of 0.25, starting top, clockwise)
-        *
-        *       component names:
-        *           cross: "Taste 0"
-        *           circle: "Taste 1"
-        *           square: "Taste 2"
-        *           Triange: "Taste 3"
-        *           L1: "Taste 4"
-        *           R1: "Tate 5"
-        *
-    *               DPad: component name: "Mehrwegeschalter"
-    *                   values (all ca. check range possibly):
-    *                   -> up: "0.25"
-    *                   -> right: "0.5"
-    *                   -> down: "0.75"
-    *                   -> left: "1.0"
-        *
-        * */
         val eventQueue = controller.eventQueue
-        var eventContainer = Event()
+        var event = Event()
         val _controllerState = MutableStateFlow(ControllerState())
         val controllerState = _controllerState.asStateFlow()
-            delay(1000)
+        delay(1000)
 
-        eventQueue.getNextEvent(eventContainer)
         while (true){
             controller.poll()
 
-            if(eventQueue.getNextEvent(eventContainer)){
-                if (eventContainer.component.isAnalog){
-                    onAnalogControllerEvent(eventContainer)
+            if(eventQueue.getNextEvent(event)){     // event is overridden by library call
+                if (event.component.isAnalog){
+                    onAnalogControllerEvent(event)
                 } else {
-                    if(eventContainer.component.name == "Taste 0") {
-                        logInputData(eventContainer)
+                    onButtonPress(event)
+                    if(event.component.name == "Taste 0") {
+                        logInputData(event)
                     }
                 }
 
@@ -103,7 +104,7 @@ class ControllerManager(
     }
 
     private fun logInputData(event: Event){
-        println(event)
+        println("event to string: " + event)
         println("component to String: " + event.component)
         println("component.isAnalog: " + event.component.isAnalog)
         println("component.isRelative: " + event.component.isRelative)
