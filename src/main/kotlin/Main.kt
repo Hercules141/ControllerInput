@@ -1,14 +1,12 @@
+
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import domain.controller.ControllerManager
-import presentation.MainWindow
+import controller_input_tester.presentation.ControllerInputTesterContent
 
 fun main() = application {
 
-    ControllerManager()
-
-
     Window(onCloseRequest = ::exitApplication) {
-        MainWindow()
+//        MainWindow()
+        ControllerInputTesterContent()
     }
 }

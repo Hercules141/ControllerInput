@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9713a060-270d-446a-af25-d2a74867de55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/MainWindow.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller_input_tester/presentation/ControllerInputTesterContent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller_input_tester/presentation/domain/ControllerInputTesterViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller_manager/domain/ControllerState.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.run/desktop.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/desktop.run.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/controller/ControllerManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/controller/ControllerManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/MainContent.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/controller/ControllerManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controller_manager/domain/ControllerManager.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +88,7 @@
       <recent name="X:\Home\Projects\IntelliJ\ControllerInput\myLib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="X:\Home\Projects\IntelliJ\ControllerInput\src\main\kotlin\core" />
       <recent name="X:\Home\Projects\IntelliJ\ControllerInput\src\main\kotlin" />
     </key>
   </component>
